@@ -1,18 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import JumbotronComponent from './components/JumbotronComponent';
+import NavbarComponents from './components/NavbarComponents';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Tomi Irvan Oktavianto</p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  // Masukkan judul
+  state = {
+    title: 'Data Siswa',
+  };
+  render() {
+    return (
+      <div>
+        {/* <h1>Test</h1> */}
+        <NavbarComponents />
+        <JumbotronComponent title={this.state.title} />
+      </div>
+    );
+  }
 }
-
-export default App;
