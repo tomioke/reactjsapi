@@ -1,13 +1,14 @@
 // Source https://react-bootstrap-table.github.io/
-import { faEdit, faPlusSquare, faPrint, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faInfo, faPlusSquare, faPrint, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
-import { Container, Button } from 'reactstrap';
+import { Container, Button, Row, Col } from 'reactstrap';
 // Load library search
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 // Load library pagination
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import { Link } from 'react-router-dom';
 
 const { SearchBar } = Search;
 const columns = [
@@ -37,26 +38,34 @@ const columns = [
   },
   {
     dataField: 'link',
-    text: 'Action',
+    text: 'ACTION',
     formatter: (rowContent, row) => {
       return (
         <div>
-          <Button color="primary" className="mr-2">
-            <FontAwesomeIcon icon={faPlusSquare} />
-            &nbsp;Create
-          </Button>
-          <Button color="success" className="mr-2">
-            <FontAwesomeIcon icon={faEdit} />
-            &nbsp;Edit
-          </Button>
-          <Button color="danger" className="mr-2">
-            <FontAwesomeIcon icon={faTrash} />
-            &nbsp;Delete
-          </Button>
-          <Button color="secondary">
-            <FontAwesomeIcon icon={faPrint} />
-            &nbsp;Print
-          </Button>
+          <Link to={'detail/' + row.id}>
+            <Button color="primary" className="mr-2">
+              <FontAwesomeIcon icon={faInfo} />
+              &nbsp;Detail
+            </Button>
+          </Link>
+          <Link to={'edit/' + row.id}>
+            <Button color="success" className="mr-2">
+              <FontAwesomeIcon icon={faEdit} />
+              &nbsp;Edit
+            </Button>
+          </Link>
+          <Link to={'delete/' + row.id}>
+            <Button color="danger" className="mr-2">
+              <FontAwesomeIcon icon={faTrash} />
+              &nbsp;Delete
+            </Button>
+          </Link>
+          <Link to={'print/' + row.id}>
+            <Button color="secondary">
+              <FontAwesomeIcon icon={faPrint} />
+              &nbsp;Print
+            </Button>
+          </Link>
         </div>
       );
     },
@@ -80,9 +89,23 @@ const TabelComponent = (props) => {
         <ToolkitProvider bootstrap4 keyField="id" data={props.user} columns={columns} defaultSorted={defaultSorted} search>
           {(props) => (
             <div>
-              {/* <h3>Input something at below input field:</h3> */}
-              <SearchBar {...props.searchProps} placeholder="Cari.." />
-              <hr />
+              <Row>
+                <Col>
+                  <Link to={'create/'}>
+                    <Button color="primary" className="mr-2">
+                      <FontAwesomeIcon icon={faPlusSquare} />
+                      &nbsp;Create Siswa
+                    </Button>
+                  </Link>
+                </Col>
+
+                <Col>
+                  {/* <h3>Input something at below input field:</h3> */}
+                  <div className="float-right">
+                    <SearchBar {...props.searchProps} placeholder="Cari.." />
+                  </div>
+                </Col>
+              </Row>
               <BootstrapTable {...props.baseProps} pagination={paginationFactory()} />
             </div>
           )}
