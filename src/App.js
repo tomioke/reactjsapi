@@ -13,23 +13,61 @@ export default class App extends Component {
         id_siswa: 1,
         nim: 'TI001',
         nama: 'TOMI IRVAN OKTAVIANTO',
-        gender: 'P',
-        tanggal_lahir: '2000-10-12',
-        tempat_lahir: 'KEBUMEN',
-        kd_agama: '01',
-        foto: 'tomy.jpg',
-        id_rombel: '1',
       },
       {
         id_siswa: 2,
         nim: 'TI002',
         nama: 'ANNISA',
-        gender: 'W',
-        tanggal_lahir: '1986-05-03',
-        tempat_lahir: 'CILACAP',
-        kd_agama: '01',
-        foto: 'ani.jpg',
-        id_rombel: '1',
+      },
+      {
+        id_siswa: 3,
+        nim: 'TI002',
+        nama: 'ANNISA',
+      },
+      {
+        id_siswa: 4,
+        nim: 'TI002',
+        nama: 'ANNISA',
+      },
+      {
+        id_siswa: 5,
+        nim: 'TI002',
+        nama: 'ANNISA',
+      },
+      {
+        id_siswa: 6,
+        nim: 'TI002',
+        nama: 'ANNISA',
+      },
+      {
+        id_siswa: 7,
+        nim: 'TI002',
+        nama: 'ANNISA',
+      },
+      {
+        id_siswa: 8,
+        nim: 'TI002',
+        nama: 'ANNISA',
+      },
+      {
+        id_siswa: 9,
+        nim: 'TI002',
+        nama: 'ANNISA',
+      },
+      {
+        id_siswa: 10,
+        nim: 'TI002',
+        nama: 'ANNISA',
+      },
+      {
+        id_siswa: 11,
+        nim: 'TI002',
+        nama: 'ANNISA',
+      },
+      {
+        id_siswa: 12,
+        nim: 'TI002',
+        nama: 'ANNISA',
       },
     ],
   };
@@ -40,7 +78,9 @@ export default class App extends Component {
         {/* <h1>Test</h1> */}
         {/* Ini adalah bagian yang di tampilkan di browser */}
         <NavbarComponents />
+        {/* Menampilkan judul */}
         <JumbotronComponent title={this.state.title} />
+        {/* Menampilkan data user */}
         <TabelComponent user={this.state.user} />
       </div>
     );
